@@ -7,3 +7,4 @@
 ## Virtual machines versus Docker
 * We can essentially do the same thing as Docker with a VM, but the problems are the OS (discrepencies in versions, each OS is installed seperately) and the overhead;
 wastes a lot of space in memory and tends to be slow.
+* Docker simply runs containers on the *Docker Engine* which runs on an *Emulated Container Support*, this all runs on one OS.
