@@ -81,3 +81,7 @@ CMD ["node","server.js"]
 * Say we want to make a change in our server.js file. Stopping and restarting the container wont show the changes. Instead we have to re-build the image.
 * Recall what we did to get the node program running, we built the image from the dockerfile, which copies all the files into the */app* docker internal directory.
 * So to see the changes, we have to rebuild the image. The image takes a snapshot of our source code at the point of time where we call *COPY . /app*.
+   * make changes to the code
+   * docker build .
+   * docker run -p 3000:80 <id>
+                                    
