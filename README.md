@@ -117,3 +117,7 @@ CMD ["node","server.js"]
    * Example, in the dockerfile we often write *FROM node* which simply pulls the most recent version of the node image. But if we want to pull node version 14, we would write *FROM node:14*
    * If we run docker ps we also see that there are *name* and *tag* columns, to specify these for a certain container given a certain image id, we write *docker build -t name:tag*
                                                                         
+# 3) Containers and Networks
+* What do we mean by networks? How we can connect multiple containers, how we can connect containers to our localhost (ex: send http requests to another service), how we can access the internet from our container.
+## Definitions: Networks and requests
+* Say we have a container with a node application. Say the application needs to communicate to some external API, 
