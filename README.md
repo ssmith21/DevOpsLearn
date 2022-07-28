@@ -19,3 +19,9 @@ wastes a lot of space in memory and tends to be slow.
 * To stop a container, we run *docker stop <assigned name>*
 
   # 2) Images and containers
+
+  ## Images vs Containers
+  * Docker  -> container: Unit of software which we run
+            -> image: *Template* for the containers. Contains code, required tools and runtimes. The image executes the code.
+  * We can use images to create multiple containers. 
+  * For example, say we want to run a NodeJS app. We define the image once, but can run multiple containers. The containers are the unit of software running the NodeJS app.
