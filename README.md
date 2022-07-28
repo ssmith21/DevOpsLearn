@@ -1,4 +1,4 @@
-# DevOpsLearn
+# 1) Intro
 
 ## Containers
 * We want to have the exact same environment for development and production, this ensures that program works exactly as tested
@@ -17,3 +17,5 @@ wastes a lot of space in memory and tends to be slow.
 *   There is no default connection between our container and our localhost. If we want to send an http request to an application running on a container, we need to open up the port on the container to which we want to communicate with.  
 * To see which containers are running, open up another terminal and write *docker ps*
 * To stop a container, we run *docker stop <assigned name>*
+
+  # 2) Images and containers
