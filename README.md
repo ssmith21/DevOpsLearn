@@ -36,3 +36,12 @@ wastes a lot of space in memory and tends to be slow.
   * What we've done is we've created a container based off the image, but at the moment the container isn't doing much since by default, the container is isolated from the environment. So inside the container, there's an interactive shell which is running, but it's not exposed to us as a user (since it's inside the container). We can tell the container was created by running *docker ps -a*
   * But now we want to access the interactive shell which is inside the container by running *docker run -it node*, (the -it tells docker we want to run an interactive session).
 * RECAP: we pull the node image from docker hub. We now have a node container with an interactive shell which is not expose to us. We run the command *docker run -it node*. By using the docker run command, we create a concrete container instance which exposes the interactive shell to us.
+ 
+## Building an image with Dockerfile
+* Contains the instructions for docker which we want to execute when we create our own image.
+ * FROM : allows us to build an image up from another image, we don't usually build an image from scratch.
+  * Ex: FROM: node *the based on an image which runs on our local machine OR if it doesn't runs it from docker hub.*
+ * COPY : Tells docker which files should go into our image.
+  * COPY . . specifies the path outside the container. The first "." is the folder which contains all the folder files. The second "." is the path inside the image where the image should be stored. COPY (local path) (destination)
+  * COPY . /app will copy all the files/folders from our local system into an "internal docker filesystem named app".
+ 
