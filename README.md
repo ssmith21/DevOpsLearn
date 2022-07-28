@@ -93,3 +93,8 @@ CMD ["node","server.js"]
                                     
 ## Images are layer-based
 * When we build an image, or rebuild it, only the instructions where something changed and all instructions afterwards are re-evaluated. This is because docker uses a cache, so it knows the result of all the code up until the changed code will be the same. Every instruction represent a layer in our docker instruction. Each layer is cached. 
+
+ ## Stopping and restarting containers
+ * Every time we do *docker run <image>* we build a new container based on the image then run the container. But what if we don't want to build a new container because the image didn't change?
+    * *docker ps -a* to get all the past containers we ran, pick a container to run.
+    * *docker start <container id>* to run the container we chose.
