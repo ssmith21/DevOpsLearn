@@ -49,7 +49,13 @@ wastes a lot of space in memory and tends to be slow.
    * It's worth noting that now we can change COPY . /app ---> COPY . ./ since the second "." will be replaced by /app since copy now works relative to the WORKDIR.
 * RUN : tells us a command we have to run. After copying all the local files in the image (such as package.json), we need to run npm install so we say:
    * RUN npm install <-- BUT theres a gotcha: By default, all the commands will be executed in the working directory of our Docker image. By default, its the root folder in our docker file system. If we wrote COPY . /app then we want to run npm install inside /app, so we need to specify this. So we give it the WORKDIR argument.
-
+   * RUN node server.js <-- We don't want to include this right away, since every time we create an image, it will try to run a server, but we only want to run the server when we execute the container. So we use the CMD command to specify that we only want to run *node server.js* when we run the container.
+* CMD : Tells us commands to run once we run the container, similar to RUN but doesn't execute when we create the container.
+   * CMD ["node","server.js"] runs node server.js
+* EXPOSE : By default, Docker has it's own server system inside the container. Our localhost and the docker server don't know about eachother since the server is INSIDE the docker container. The EXPOSE command lets docker know that we want to expose a certain port to our local system. 
+   * EXPOSE 80
+ 
+ 
 ```
 FROM node
 
@@ -59,5 +65,7 @@ COPY . /app
 
 RUN npm install
 
-RUN node server.js
+EXPOSE 80
+
+CMD ["node","server.js"]
 ```
