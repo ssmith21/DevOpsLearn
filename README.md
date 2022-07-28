@@ -95,12 +95,12 @@ CMD ["node","server.js"]
 * When we build an image, or rebuild it, only the instructions where something changed and all instructions afterwards are re-evaluated. This is because docker uses a cache, so it knows the result of all the code up until the changed code will be the same. Every instruction represent a layer in our docker instruction. Each layer is cached. 
 
  ## Stopping and restarting containers
- * Every time we do *docker run <image>* we build a new container based on the image then run the container. But what if we don't want to build a new container because the image didn't change?
+* Every time we do *docker run <image>* we build a new container based on the image then run the container. But what if we don't want to build a new container because the image didn't change?
     * *docker ps -a* to get all the past containers we ran, pick a container to run.
     * *docker start <container id>* to run the container we chose.
 
  ## Interactive mode for docker
- * Say we have a python program which generates a random number every time we enter something in the terminal: rng.py, and in rng.py we have int(input(...)) which takes an input. If we try to run the container it won't work because of an EOF error.
+* Say we have a python program which generates a random number every time we enter something in the terminal: rng.py, and in rng.py we have int(input(...)) which takes an input. If we try to run the container it won't work because of an EOF error.
  ```
  FROM python
  WORKDIR /app
@@ -108,3 +108,11 @@ CMD ["node","server.js"]
  CMD ["python","rng.py"]
  ```
  * Then we simply write *docker run -i -t <image id>* ,where the -i launches the container in interactive mode and -t launches a docker pseudo-terminal. We can also combine the -i and -t and write *docker run -it <image id>*
+
+## Naming and tagging containers and images
+* *docker run -p 8000:30 --name <inputContainerName> <image id>*    <-- assigns a name to a docker container
+* image tags are comprised of 2 parts <name : tag>
+   * name: Defines a group images, maybe more specialized images. Example: node
+   * tag: Defines a specialized image within a group of images. Example: 14
+   * Example, in the dockerfile we often write *FROM node* which simply pulls the most recent version of the node image. But if we want to pull node version 14, we would write *FROM node:14*
+                                                                        
