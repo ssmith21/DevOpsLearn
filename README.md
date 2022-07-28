@@ -98,3 +98,13 @@ CMD ["node","server.js"]
  * Every time we do *docker run <image>* we build a new container based on the image then run the container. But what if we don't want to build a new container because the image didn't change?
     * *docker ps -a* to get all the past containers we ran, pick a container to run.
     * *docker start <container id>* to run the container we chose.
+
+ ## Interactive mode for docker
+ * Say we have a python program which generates a random number every time we enter something in the terminal: rng.py, and in rng.py we have int(input(...)) which takes an input. If we try to run the container it won't work because of an EOF error.
+ * ```
+ FROM python
+ WORKDIR /app
+ COPY . /app
+ CMD ["python","rng.py"]
+ ```
+ * Then we simply write *docker run -i -t <image id>* ,where the -i launches the container in interactive mode and -t launches a docker pseudo-terminal. We can also combine the -i and -t and write *docker run -it <image id>*
