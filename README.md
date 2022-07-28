@@ -69,3 +69,7 @@ EXPOSE 80
 
 CMD ["node","server.js"]
 ```
+
+ * Now that we've created the docker file run the following commands in CMD:
+   * docker build . <-- tells docker to build a new *custom image* based on a docker file. The "." just tells docker that the Dockerfile is in our current dir.
+   * docker run <id> <-- now we instantiate the node container in which we can access the application inside the container. Notice that in this case, the output will be nothing and the command will never finish. This is because the CMD "node server.js" never finishes, since its just a command whic runs a server. Once we close the server, it will finish.
