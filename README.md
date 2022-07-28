@@ -15,3 +15,5 @@ wastes a lot of space in memory and tends to be slow.
 *   Once it's built, we get the ID of the image and run *docker run -p 3000:3000 <ID>*
 *   Now we can run localhost:3000 which we can visit. The -p 3000:3000 uses the localhost to reach the application running on port 3000 instead of the container.
 *   There is no default connection between our container and our localhost. If we want to send an http request to an application running on a container, we need to open up the port on the container to which we want to communicate with.  
+* To see which containers are running, open up another terminal and write *docker ps*
+* To stop a container, we run *docker stop <assigned name>*
