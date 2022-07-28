@@ -85,3 +85,5 @@ CMD ["node","server.js"]
    * docker build .
    * docker run -p 3000:80 <id>
                                     
+## Images are layer-based
+* When we build an image, or rebuild it, only the instructions where something changed and all instructions afterwards are re-evaluated. This is because docker uses a cache, so it knows the result of all the code up until the changed code will be the same. Every instruction represent a layer in our docker instruction. Each layer is cached. 
