@@ -101,7 +101,7 @@ CMD ["node","server.js"]
 
  ## Interactive mode for docker
  * Say we have a python program which generates a random number every time we enter something in the terminal: rng.py, and in rng.py we have int(input(...)) which takes an input. If we try to run the container it won't work because of an EOF error.
- * ```
+ ```
  FROM python
  WORKDIR /app
  COPY . /app
