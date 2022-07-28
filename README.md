@@ -115,5 +115,5 @@ CMD ["node","server.js"]
    * name: Defines a group images, maybe more specialized images. Example: node
    * tag: Defines a specialized image within a group of images. Example: 14
    * Example, in the dockerfile we often write *FROM node* which simply pulls the most recent version of the node image. But if we want to pull node version 14, we would write *FROM node:14*
-   * If we run docker ps we also see that there are *name* and *tag* columns, to specify these for a certain container given a certain image id, we write *docker build -t goals:latest*
+   * If we run docker ps we also see that there are *name* and *tag* columns, to specify these for a certain container given a certain image id, we write *docker build -t name:tag*
                                                                         
