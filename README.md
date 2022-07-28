@@ -51,7 +51,11 @@ wastes a lot of space in memory and tends to be slow.
    * RUN npm install <-- BUT theres a gotcha: By default, all the commands will be executed in the working directory of our Docker image. By default, its the root folder in our docker file system. If we wrote COPY . /app then we want to run npm install inside /app, so we need to specify this. So we give it the WORKDIR argument.
 
 <code> FROM node
+
 WORKDIR /app
+
 COPY . /app
+
 RUN npm install
+
 RUN node server.js</code>
