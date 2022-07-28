@@ -39,9 +39,12 @@ wastes a lot of space in memory and tends to be slow.
  
 ## Building an image with Dockerfile
 * Contains the instructions for docker which we want to execute when we create our own image.
- * FROM : allows us to build an image up from another image, we don't usually build an image from scratch.
+* FROM : allows us to build an image up from another image, we don't usually build an image from scratch.
    * Ex: FROM: node *the based on an image which runs on our local machine OR if it doesn't runs it from docker hub.*
- * COPY : Tells docker which files should go into our image.
+* COPY : Tells docker which files should go into our image.
    * COPY . . specifies the path outside the container. The first "." is the folder which contains all the folder files. The second "." is the path inside the image where the image should be stored. COPY (local path) (destination)
    * COPY . /app will copy all the files/folders from our local system into an "internal docker filesystem named app".
- 
+* WORKDIR : Tells docker where to run all the commands. 
+   * WORKDIR /app : When we pass a RUN argument, docker will run the commands inside /app
+* RUN : tells us a command we have to run. After copying all the local files in the image (such as package.json), we need to run npm install so we say:
+   * RUN npm install <-- BUT theres a gotcha: By default, all the commands will be executed in the working directory of our Docker image. By default, its the root folder in our docker file system. If we wrote COPY . /app then we want to run npm install inside /app, so we need to specify this. So we give it the WORKDIR argument.
