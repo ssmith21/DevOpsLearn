@@ -1,3 +1,9 @@
+# Summaries
+2) What is docker
+3) Why docker and containers
+5) Virtual machines vs docker containers
+26) A first Summary
+
 # 1) Intro
 
 ## Containers
