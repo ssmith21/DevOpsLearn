@@ -40,8 +40,8 @@ wastes a lot of space in memory and tends to be slow.
 ## Building an image with Dockerfile
 * Contains the instructions for docker which we want to execute when we create our own image.
  * FROM : allows us to build an image up from another image, we don't usually build an image from scratch.
-  # Ex: FROM: node *the based on an image which runs on our local machine OR if it doesn't runs it from docker hub.*
+   * Ex: FROM: node *the based on an image which runs on our local machine OR if it doesn't runs it from docker hub.*
  * COPY : Tells docker which files should go into our image.
-  # COPY . . specifies the path outside the container. The first "." is the folder which contains all the folder files. The second "." is the path inside the image where the image should be stored. COPY (local path) (destination)
-  # COPY . /app will copy all the files/folders from our local system into an "internal docker filesystem named app".
+   * COPY . . specifies the path outside the container. The first "." is the folder which contains all the folder files. The second "." is the path inside the image where the image should be stored. COPY (local path) (destination)
+   * COPY . /app will copy all the files/folders from our local system into an "internal docker filesystem named app".
  
