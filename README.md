@@ -74,4 +74,10 @@ CMD ["node","server.js"]
    * docker build . <-- tells docker to build a new *custom image* based on a docker file. The "." just tells docker that the Dockerfile is in our current dir.
    * docker run <id> <-- now we instantiate the node container in which we can access the application inside the container. Notice that in this case, the output will be nothing and the command will never finish. This is because the CMD "node server.js" never finishes, since its just a command whic runs a server. Once we close the server, it will finish. BUT this will not work, even though we exposed the port 80, we need to tell docker which *internal docker port* our *local port* is accessible from.
    * docker run -p localport:internal <id>
-   * docker run -p 3000:80 <id> <-- We can access the exposed internal docker port 80 on our local machine via localhost 3000.       
+   * docker run -p 3000:80 <id> <-- We can access the exposed internal docker port 80 on our local machine via localhost 3000.   
+                                    
+                                    
+## Images are read-only
+* Say we want to make a change in our server.js file. Stopping and restarting the container wont show the changes. Instead we have to re-build the image.
+* Recall what we did to get the node program running, we built the image from the dockerfile, which copies all the files into the */app* docker internal directory.
+* So to see the changes, we have to rebuild the image. The image takes a snapshot of our source code at the point of time where we call *COPY . /app*.
