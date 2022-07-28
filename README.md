@@ -18,11 +18,20 @@ wastes a lot of space in memory and tends to be slow.
 * To see which containers are running, open up another terminal and write *docker ps*
 * To stop a container, we run *docker stop <assigned name>*
 
-  # 2) Images and containers
+# 2) Images and containers
 
-  ## Images vs Containers
+## Images vs Containers
 * Docker is made up of 2 core concepts:
   * container: Unit of software which we run
   * image: *Template* for the containers. Contains code, required tools and runtimes. The image executes the code.
 * We can use images to create multiple containers. 
 * For example, say we want to run a NodeJS app. We define the image once, but can run multiple containers. The containers are the unit of software running the NodeJS app.
+
+## Finding / Creating images
+* Use docker hub
+* Say we want to run a node application container, on docker if we search *node* we can find the image we want to run.
+* In a terminal, run *docker run node*
+  * Creates a container based on the image that was published.
+  * We will run the container so that we can interact with the NodeJS interactive shell. This is great, because it allows us to interact with Node without having to install Node on our machine.
+  * What we've done is we've created a container based off the image, but at the moment the container isn't doing much since by default, the container is isolated from the environment. So inside the container, there's an interactive shell which is running, but it's not exposed to us as a user (since it's inside the container). We can tell the container was created by running *docker ps -a*
+  * But now we want to access the interactive shell which is inside the container by running *docker run -it node*, (the -it tells docker we want to run an interactive session).
