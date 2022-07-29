@@ -125,4 +125,5 @@ CMD ["node","server.js"]
 * **Container -> web:** Out of the box, we can interact with web APIs from inside our containerized application. 
 * **Container -> host machine:** Our dockerized application however, can't talk to a locally installed mongoDB database running on our local machine isolated from our container, for example. How do we make it work? 
 We change ```mongodb://localhost:27017/apicall``` to ```mongodb://host.docker.internal:27017/apicall``` (localhost --> host.docker.internal). What this special docker domain is translated to the IP address of our host machine as seen from inside the docker container.
-* **Container -> Container: **
+* **Container -> Container:** Say we put our mongoDB database inside a container. 
+   * *docker run -d --name mongodb mongo*    <-- Create a new container based on the mongoDB image which spins up a mongoDB database.
