@@ -119,5 +119,9 @@ CMD ["node","server.js"]
                                                                         
 # 3) Containers and Networks
 * What do we mean by networks? How we can connect multiple containers, how we can connect containers to our localhost (ex: send http requests to another service), how we can access the internet from our container.
-## Definitions: Networks and requests
-* Say we have a container with a node application. Say the application needs to communicate to some external API, 
+## Scenario: Networks and requests
+* Say we have a container with a node application. Say the application needs to communicate to some external API, say *GET http://some-api.com/*. How do we get the container to communicate with the API when the container is isolated?
+## Create a container and communicate with the web
+* Out of the box, we can interact with web APIs from inside our containerized application. 
+* Our dockerized application however, can't talk to a locally installed mongoDB database running on our local machine isolated from our container, for example. How do we make it work? 
+We change ```mongodb://localhost:27017/apicall``` to ```mongodb://host.docker.internal:27017/apicall``` (localhost --> host.docker.internal). What this special docker domain is translated to the IP address of our host machine as seen from inside the docker container.
