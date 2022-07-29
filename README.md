@@ -142,3 +142,10 @@ We change ```mongodb://localhost:27017/apicall``` to ```mongodb://host.docker.in
 <hr style="border:2px solid gray">
 
 # Kubernetes
+* What is kubernetes? An open-source system for automating deployment, scaling and management of containerized applications. Docker creates containers based off of images, kubernetes is a system/collection of software which allows us to manage multiple containers.
+* Challenges we might face:
+  * Manual deployment of containers is hard to maintain and error prone. Containers might need crash and need to be replaced.
+  * We might need more container instances upon traffic spikes, so we should scale up the number of containers to distribute the workload across containers.
+  * Kubernetes can perform health-checks + automatic redeployments
+  * Kubernetes can perform auto-scaling to increase the number of containers in high traffic spikes.
+  * Kubernetes can perform load-balancing to distribute incoming traffic amongst containers.
