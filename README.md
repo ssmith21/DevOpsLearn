@@ -127,3 +127,5 @@ CMD ["node","server.js"]
 We change ```mongodb://localhost:27017/apicall``` to ```mongodb://host.docker.internal:27017/apicall``` (localhost --> host.docker.internal). What this special docker domain is translated to the IP address of our host machine as seen from inside the docker container.
 * **Container -> Container:** Say we put our mongoDB database inside a container. 
    * *docker run -d --name mongodb mongo*    <-- Create a new container based on the mongoDB image which spins up a mongoDB database.
+   * *docker container inspect mongoDB*     <-- Gives us information about the container, including an IPAddress, which is the IP address of the container which can be used to contact the container running the mongoDB database. (ex: 172.17.0.2)
+   * in our app.js, to connect to the database from inside the container we use ```mongoose.connect('mongodb://172.17.0.2:<defaultport>/<apicall>', ...)```
