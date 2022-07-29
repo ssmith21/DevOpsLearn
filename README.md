@@ -143,6 +143,11 @@ We change ```mongodb://localhost:27017/apicall``` to ```mongodb://host.docker.in
 
 # Kubernetes
 * What is kubernetes? An open-source system for automating deployment, scaling and management of containerized applications. Docker creates containers based off of images, kubernetes is a system/collection of software which allows us to manage multiple containers.
+* ELI5: An open-source system for orchestraiting container deployments.
+* contains a kubernetes configuration tool which we can provide to a cloud provider or remote machine to perform the tasks defined in the configuration.
+  * has a standardized way of describing the resources of the Kubernetes Cluster. As long as the server can run Kubernetes, we can run the config file.
+  * It's essentially docker compose for multiple machines. Docker compose manages mulit-container projects on a machine.
+  * Kubernetes manages multi-container projects on multiple machines. 
 * Challenges we might face:
   * Manual deployment of containers is hard to maintain and error prone. Containers might need crash and need to be replaced.
   * We might need more container instances upon traffic spikes, so we should scale up the number of containers to distribute the workload across containers.
