@@ -3,6 +3,7 @@
 3) Why docker and containers
 5) Virtual machines vs docker containers
 26) A first Summary
+74) Docker networks
 
 # 1) Intro
 
@@ -128,4 +129,11 @@ We change ```mongodb://localhost:27017/apicall``` to ```mongodb://host.docker.in
 * **Container -> Container:** Say we put our mongoDB database inside a container. 
    * *docker run -d --name mongodb mongo*    <-- Create a new container based on the mongoDB image which spins up a mongoDB database.
    * *docker container inspect mongoDB*     <-- Gives us information about the container, including an IPAddress, which is the IP address of the container which can be used to contact the container running the mongoDB database. (ex: 172.17.0.2)
-   * in our app.js, to connect to the database from inside the container we use ```mongoose.connect('mongodb://172.17.0.2:<defaultport>/<apicall>', ...)```
+   * in our app.js, to connect to the database from inside the container we use ```mongoose.connect('mongodb://172.17.0.2:<defaultport>/<apicall>', ...)```. Now we can talk to the container.
+   * Now let's build and run a container (named favorites) which can interact with the mongoDB container.
+   * docker build -t favorites-node:1 .     <-- build an image named favorites-node with tag 1.
+   * docker run --name favorites -d --rm -p 3000:3000 favorites-node:1     <-- run a container named favorites based off the image *favorites-node*
+   * now if we enter the command request in postman http://localhost:3000/favorites, we'll access the mongoDB database spinning up in the mongoDB container.
+## Docker Networks
+* This is the actual way to create container networks. Say we have multiple containers which need to communicate with eachother. The collection of networks is called a container. With a Docker network, all containers can communicate with each other and IPs are automatically resolved.
+* docker network create favorites-net   <-- creates a network called favorites-net
