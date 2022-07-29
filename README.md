@@ -137,3 +137,8 @@ We change ```mongodb://localhost:27017/apicall``` to ```mongodb://host.docker.in
 ## Docker Networks
 * This is the actual way to create container networks. Say we have multiple containers which need to communicate with eachother. The collection of networks is called a container. With a Docker network, all containers can communicate with each other and IPs are automatically resolved.
 * docker network create favorites-net   <-- creates a network called favorites-net
+
+                                            
+<hr style="border:2px solid gray">
+
+# Kubernetes
